@@ -1,0 +1,52 @@
+1) cat /etc/passwd | cut -d : -f 1 | sort
+
+2) Первые 5 протоколов отсорт в обр порядке
+cat /etc/protocols | grep '^[a-zA-Z0-9]\+\s\+[0-9]\+'| awk '{ print $2 "\t"$1 }' | sort -n -r | head -n 5
+cat /etc/protocols | cut -f 1,2 -s | awk '{ print $2 "\t"$1 }' | sort -n -r | head -n 5
+
+! awk - какая-то штука, позволяющая писать код
+! head - утилита, выводит первые 10 эл-в списка
+
+3) 
+nano banner
+#!/bin/bash
+echo "+-$(echo "$@" | sed -e 's/./-/g')-+"
+echo "| $@ |"
+echo "+-$(echo "$@" | sed -e 's/./-/g')-+"
+
+chmod +x banner
+./banner type anythng
+
+4) Вывести из файла hello.c все идентификаторы
+cat hello.c | grep -o '[a-zA-Z_][a-zA-Z0-9_]*' | uniq | sort
+cat hello.c | grep -o '[a-zA-Z_][a-zA-Z0-9_]*' | sort -u
+
+! В симв.группе знак "-" просто ставится в конце
+! grep -R рекурсивный поиск по содержимому
+! Сайт для проверки регулярных выражений regex101.com
+
+5) Регистрация пользв. команды - установить правильные права
+и скопировать в папку. Название файла - reg
+
+nano reg
+
+#!/bin/sh
+mcdir -p /usr/local/bin/
+cp "$1" /usr/local/bin/
+chmod 0755 /usr/local/bin/reg
+chown root:root "$1"
+
+chmod +x reg
+./reg banner
+banner type anything
+
+! cp - копирование
+! usr/local/bin - расположение локальных команд
+
+
+6) cat hello.c | head -n 1 | grep -q '[/][/*]' && echo "comment" || echo "no comment"
+
+7) cat * | sort | uniq -d | grep . -qc && echo "Дупликаты обнаружены" || echo "Дупликаты не обнаружены"
+
+8) tar -cvf archive.tar *.txt 
+чтоб программой, запихиваем как в 3 в nano, например, и вместо .txt пишем $@ (аргумент) 
