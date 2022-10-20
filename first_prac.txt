@@ -44,7 +44,14 @@ banner type anything
 ! usr/local/bin - расположение локальных команд
 
 
-6) cat $@ | head -n 1 | grep -q '[/][/*]' && echo "comment" || echo "no comment"
+6) if [ "$@" == "*.py" ] 
+then
+   cat $@ | head -n 1 | grep -q '[#]' && echo "comment" || echo "no comment"                  
+fi
+if [ "$@" == "*.c"] || [ "$@" == "*.js" ]
+then
+   cat $@ | head -n 1 | grep -q '[/][/*]' && echo "comment" || echo "no comment"                  
+fi
 
 7)find $@ -type f | cat | sort | uniq -d | grep . -qc && echo "dubl" || echo "no dubl"
 
