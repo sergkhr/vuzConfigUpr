@@ -31,7 +31,7 @@ cat hello.c | grep -o '[a-zA-Z_][a-zA-Z0-9_]*' | sort -u
 nano reg
 
 #!/bin/sh
-mcdir -p /usr/local/bin/
+mkdir -p /usr/local/bin/
 cp "$1" /usr/local/bin/
 chmod 0755 /usr/local/bin/reg
 chown root:root "$1"
@@ -44,9 +44,8 @@ banner type anything
 ! usr/local/bin - расположение локальных команд
 
 
-6) cat hello.c | head -n 1 | grep -q '[/][/*]' && echo "comment" || echo "no comment"
+6) cat $@ | head -n 1 | grep -q '[/][/*]' && echo "comment" || echo "no comment"
 
-7) cat * | sort | uniq -d | grep . -qc && echo "Дупликаты обнаружены" || echo "Дупликаты не обнаружены"
+7)find $@ -type f | cat | sort | uniq -d | grep . -qc && echo "dubl" || echo "no dubl"
 
-8) tar -cvf archive.tar *.txt 
-чтоб программой, запихиваем как в 3 в nano, например, и вместо .txt пишем $@ (аргумент) 
+8) tar -cvf archive.tar *$@
