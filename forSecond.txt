@@ -1,0 +1,17 @@
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git config --global user.name "sergey"
+
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git config --global user.email "serg.khrechko@gmail.cmo"
+
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git config --global user.email "serg.khrechko@gmail.com"
+
+git init repository
+
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git add main.py
+
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git add .gitignore
+
+C:\Users\ivc1-5\PycharmProjects\pythonProject>git commit -m "first commit"
+[master (root-commit) d21efd2] first commit
+ 2 files changed, 19 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 main.py
