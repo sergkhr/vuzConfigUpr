@@ -1,0 +1,1 @@
+\int_{x}^{\infty}\frac{\mathrm{d}t}{t(t^2 - 1)\log(t)} = \int_{x}^{\infty}\frac{1}{t\log(t)}\left ( \sum_{m}t^{-2m} \right )\mathrm{d}t = \sum_{m}\int_{x}^{\infty}\frac{t^{-2m}}{t\log t}\mathrm{d}t \overset{(u=t^{-2m})}{=} -\sum_{m}\mathrm{li}\left ( x^{-2m} \right )\ \ \ \ \ \mathrm{Khrechko}
