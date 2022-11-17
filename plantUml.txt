@@ -1,0 +1,51 @@
+@startuml
+
+<style>
+  actor{
+    BackGroundColor white
+    LineThickness 2
+    LineColor black
+  }
+  database{
+    BackGroundColor white
+    LineThickness 2
+    LineColor black
+  }
+  Lifeline{
+    linestyle solid
+  }
+</style>
+
+actor khrechko_s._v. as user
+database Piazza
+actor teacher
+
+teacher -> Piazza: task publication
+activate Piazza
+teacher <-- Piazza: task publicated
+deactivate Piazza
+...
+user -> Piazza: task search
+activate Piazza
+user <-- Piazza: task found
+deactivate Piazza
+...
+user -> Piazza: solution publication
+activate Piazza
+user <-- Piazza: solution publicated
+deactivate Piazza
+...
+teacher -> Piazza: solution search
+activate Piazza
+teacher <-- Piazza: solution found
+teacher -> Piazza: mark publication
+teacher <-- Piazza: mark publicated
+deactivate Piazza
+...
+user -> Piazza: mark check
+activate Piazza
+user <-- Piazza: mark given
+deactivate Piazza
+
+
+@enduml
