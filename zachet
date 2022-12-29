@@ -1,0 +1,2 @@
+\rho \left ( \frac{\partial \vec{v}}{\partial t} +(\vec{v} * \nabla)\vec{v} \right ) = -\nabla p+\eta \Delta \vec{v}+\left ( \zeta +\frac{\eta }{3} \right )\nabla\div \vec{v}
+
